@@ -35,7 +35,6 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><text y="16" font-size="16">❤️</text></svg>'), auto;
         }
 
-        /* Canvas de fondo para partículas */
         #particlesCanvas {
             position: fixed;
             top: 0;
@@ -46,7 +45,6 @@
             pointer-events: none;
         }
 
-        /* Easter Egg: Corazones al hacer click */
         .click-heart {
             position: fixed;
             font-size: 2rem;
@@ -66,7 +64,6 @@
             }
         }
 
-        /* Easter Egg: Confetti */
         .confetti {
             position: fixed;
             width: 10px;
@@ -87,7 +84,6 @@
             }
         }
 
-        /* Barra de navegación flotante - RESPONSIVE */
         nav {
             position: fixed;
             top: 10px;
@@ -133,7 +129,6 @@
             transform: scale(1.05);
         }
 
-        /* Easter Egg Badge - RESPONSIVE */
         .easter-egg-badge {
             position: fixed;
             bottom: 20px;
@@ -161,14 +156,12 @@
             }
         }
 
-        /* Contenedor principal */
         .main-container {
             position: relative;
             z-index: 1;
             padding-top: 80px;
         }
 
-        /* Hero Section - MEJORADO RESPONSIVE */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -230,7 +223,6 @@
             line-height: 1.5;
         }
 
-        /* Contador de días - TOTALMENTE RESPONSIVE */
         .counter-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -285,7 +277,6 @@
             letter-spacing: 1px;
         }
 
-        /* Sección de mensajes - RESPONSIVE */
         .messages-section {
             padding: 60px 15px;
             max-width: 1200px;
@@ -357,7 +348,6 @@
             font-weight: 600;
         }
 
-        /* Galería de momentos - TOTALMENTE RESPONSIVE CON IMÁGENES */
         .gallery-section {
             padding: 60px 15px;
             text-align: center;
@@ -396,7 +386,6 @@
             touch-action: manipulation;
         }
 
-        /* Soporte para imágenes en galería */
         .gallery-item img {
             width: 100%;
             height: 100%;
@@ -421,7 +410,6 @@
             100% { transform: rotate(360deg) scale(1); }
         }
 
-        /* Mensaje secreto - RESPONSIVE */
         .secret-section {
             padding: 60px 15px;
             text-align: center;
@@ -477,7 +465,6 @@
             }
         }
 
-        /* Firma final - RESPONSIVE */
         .signature-section {
             padding: 60px 15px;
             text-align: center;
@@ -512,7 +499,6 @@
             text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
         }
 
-        /* Botón CTA - RESPONSIVE */
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
@@ -535,7 +521,6 @@
             box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6);
         }
 
-        /* Modal para easter egg especial - RESPONSIVE */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -602,7 +587,6 @@
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
         }
 
-        /* Scroll indicator - RESPONSIVE */
         .scroll-indicator {
             position: absolute;
             bottom: 20px;
@@ -644,9 +628,6 @@
             100% { top: 25px; opacity: 0; }
         }
 
-        /* MEDIA QUERIES ESPECÍFICOS */
-        
-        /* Tablets */
         @media (max-width: 768px) {
             nav {
                 padding: 8px 12px;
@@ -673,7 +654,6 @@
             }
         }
 
-        /* Móviles pequeños */
         @media (max-width: 480px) {
             .main-container {
                 padding-top: 70px;
@@ -729,7 +709,6 @@
             }
         }
 
-        /* Móviles muy pequeños */
         @media (max-width: 360px) {
             .counter-number {
                 font-size: 1.8rem;
@@ -744,7 +723,6 @@
             }
         }
 
-        /* Landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .hero {
                 min-height: auto;
@@ -759,11 +737,6 @@
 </head>
 <body>
     <canvas id="particlesCanvas"></canvas>
-    
-    <!-- Audio automático -->
-    <audio id="bgMusic" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
 
     <nav>
         <a href="#inicio">Inicio</a>
@@ -776,7 +749,6 @@
         🏆 <span id="eggCount">0</span>/7
     </div>
 
-    <!-- Modal Konami Code -->
     <div class="modal-overlay" id="konamiModal">
         <div class="modal-content">
             <h2>🎉 ¡Easter Egg Secreto! 🎉</h2>
@@ -787,7 +759,6 @@
     </div>
 
     <div class="main-container">
-        <!-- Hero Section -->
         <section class="hero" id="inicio">
             <div class="hero-content">
                 <h1 id="mainTitle">Para Mi Amor Aleja ❤</h1>
@@ -818,7 +789,6 @@
             </div>
         </section>
 
-        <!-- Mensajes Section -->
         <section class="messages-section" id="mensajes">
             <div class="message-card" ondblclick="easterEgg2(this)">
                 <div class="message-icon">❤️</div>
@@ -826,42 +796,81 @@
                     Eres la razón de mi sonrisa, la luz de mis días, y el amor de mi vida. No puedo imaginar mi vida sin ti, Aleja.
                 </p>
             </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">💖</div>
+                <p class="message-text">
+                    Quiero que sepas lo mucho que te amo, Aleja. Eres la persona más hermosa que he conocido, no solo por fuera, sino por todo lo que eres por dentro.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">✨</div>
+                <p class="message-text">
+                    Tu sonrisa ilumina mis días y tu presencia llena mi vida de felicidad. Cada día que despierto pensando en ti es un regalo.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🌹</div>
+                <p class="message-text">
+                    No hay palabras suficientes para expresar la inmensa felicidad que siento al tenerte en mi vida. Cada momento contigo es un tesoro que guardo en mi corazón.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">💕</div>
+                <p class="message-text">
+                    Cuando estoy contigo, todo tiene sentido. Tus abrazos son mi refugio, tu risa es mi canción favorita, y tus ojos son el lugar donde encuentro paz.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🌟</div>
+                <p class="message-text">
+                    Me haces feliz de maneras que nunca imaginé posibles. Desde las pequeñas cosas hasta los grandes momentos, todo es mejor cuando estás a mi lado.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">💝</div>
+                <p class="message-text">
+                    Agradezco todos los días por la bendición de compartir mi vida contigo. Eres mi compañera, mi amor, mi todo. <strong>Eres absolutamente hermosa</strong>, por dentro y por fuera.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🎆</div>
+                <p class="message-text">
+                    Cada día a tu lado es una aventura hermosa. Me haces sonreír incluso en los momentos más difíciles, y tu amor me da fuerzas para todo.
+                </p>
+            </div>
         </section>
 
-        <!-- Galería -->
         <section class="gallery-section" id="momentos">
             <h2 class="gallery-title">La mujer de mi vida</h2>
             <div class="gallery-grid">
-                <!-- Puedes reemplazar los emojis con imágenes así: <img src="foto1.jpg" alt="Momento 1"> -->
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                    <!-- Para usar imágenes, descomenta la línea de abajo y comenta el emoji -->
-                   <img src="img/1.jpg" alt="Nosotros"> 
+                    💑
                 </div>
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                     <img src="img/2.jpg" alt="Flores"> 
+                    🌹
                 </div>
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                    <img src="img/3.jpg" alt="Celebración">
+                    🎉
                 </div>
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                     <img src="img/4.jpg" alt="Noche"> 
+                    🌙
                 </div>
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                     <img src="img/5.jpg" alt="Día"> 
+                    ☀️
                 </div>
                 <div class="gallery-item" onclick="easterEgg3(this)">
-                    
-                    <img src="img/6.jpg" alt="Ramo"> 
+                    💐
                 </div>
             </div>
         </section>
 
-        <!-- Mensaje Secreto -->
         <section class="secret-section" id="secreto">
             <div class="secret-box" id="secretBox">
                 <div class="secret-lock" id="secretLock">🔒</div>
@@ -872,7 +881,6 @@
             </div>
         </section>
 
-        <!-- Firma -->
         <section class="signature-section">
             <div class="signature">
                 Con todo mi amor, siempre 💝
@@ -886,7 +894,6 @@
     </div>
 
     <script>
-        // Sistema de Easter Eggs
         let easterEggsFound = new Set();
         const totalEasterEggs = 7;
 
@@ -903,7 +910,6 @@
             }
         }
 
-        // Easter Egg 1: Click en contadores
         let counterClicks = 0;
         function easterEgg1(element) {
             counterClicks++;
@@ -919,7 +925,6 @@
             }
         }
 
-        // Easter Egg 2: Doble click en mensajes
         let messageDoubleClicks = 0;
         function easterEgg2(element) {
             messageDoubleClicks++;
@@ -933,7 +938,6 @@
             }
         }
 
-        // Easter Egg 3: Click en galería
         let galleryClicks = 0;
         function easterEgg3(element) {
             galleryClicks++;
@@ -947,7 +951,6 @@
             }
         }
 
-        // Easter Egg 4: Código Konami (↑↑↓↓←→←→BA)
         const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         let konamiIndex = 0;
 
@@ -977,7 +980,6 @@
             document.getElementById('konamiModal').style.display = 'none';
         }
 
-        // Easter Egg 5: Triple click en firma
         let signatureClicks = 0;
         let signatureTimer = null;
         function easterEgg5(element) {
@@ -996,11 +998,9 @@
             }
         }
 
-        // Easter Egg 6: Mantener presionado el título
         let titleHoldTimer = null;
         const mainTitle = document.getElementById('mainTitle');
         
-        // Para desktop
         mainTitle.addEventListener('mousedown', () => {
             titleHoldTimer = setTimeout(() => {
                 if (!easterEggsFound.has('title')) {
@@ -1019,7 +1019,6 @@
             if (titleHoldTimer) clearTimeout(titleHoldTimer);
         });
 
-        // Para móviles (touch)
         mainTitle.addEventListener('touchstart', () => {
             titleHoldTimer = setTimeout(() => {
                 if (!easterEggsFound.has('title')) {
@@ -1038,7 +1037,6 @@
             if (titleHoldTimer) clearTimeout(titleHoldTimer);
         });
 
-        // Easter Egg 7: Scroll rápido
         let scrollCount = 0;
         let lastScrollTime = Date.now();
         
@@ -1057,7 +1055,6 @@
             lastScrollTime = now;
         });
 
-        // Corazones al hacer click (solo en desktop para no interferir con mobile)
         if (window.innerWidth > 768) {
             document.addEventListener('click', (e) => {
                 createClickHeart(e.pageX, e.pageY);
@@ -1075,7 +1072,6 @@
             setTimeout(() => heart.remove(), 2000);
         }
 
-        // Confetti
         function createConfetti(element) {
             const rect = element.getBoundingClientRect();
             const colors = ['#ff69b4', '#ff1493', '#ffb3d9', '#fff', '#ffc0cb'];
@@ -1165,13 +1161,11 @@
             }
         }
 
-        // Partículas en Canvas (optimizado para móviles)
         const canvas = document.getElementById('particlesCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Reducir partículas en móviles
         const isMobile = window.innerWidth <= 768;
         const particleCount = isMobile ? 50 : 100;
 
@@ -1222,7 +1216,6 @@
             canvas.height = window.innerHeight;
         });
 
-        // Contador de días
         function updateCounter() {
             const startDate = new Date('2024-01-01');
             const now = new Date();
@@ -1238,7 +1231,6 @@
         updateCounter();
         setInterval(updateCounter, 3600000);
 
-        // Scroll reveal para mensajes
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1256,7 +1248,6 @@
             observer.observe(card);
         });
 
-        // Mensaje secreto
         const secretBox = document.getElementById('secretBox');
         const secretLock = document.getElementById('secretLock');
         const secretMessage = document.getElementById('secretMessage');
@@ -1274,7 +1265,6 @@
             }
         });
 
-        // Smooth scroll para navegación
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1283,7 +1273,6 @@
             });
         });
 
-        // Efecto parallax en scroll (deshabilitado en móviles para mejor performance)
         if (!isMobile) {
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
@@ -1294,37 +1283,6 @@
             });
         }
 
-        // Música automática
-        const music = document.getElementById('bgMusic');
-        
-        // Intentar reproducir automáticamente
-        function playMusic() {
-            music.play().catch(error => {
-                console.log('Autoplay bloqueado. Se reproducirá con interacción del usuario.');
-            });
-        }
-
-        // Reproducir con primera interacción si autoplay está bloqueado
-        let firstInteraction = true;
-        const startMusic = () => {
-            if (firstInteraction) {
-                playMusic();
-                firstInteraction = false;
-            }
-        };
-
-        document.addEventListener('click', startMusic, { once: true });
-        document.addEventListener('touchstart', startMusic, { once: true });
-
-        // Intentar reproducir al cargar
-        window.addEventListener('load', () => {
-            setTimeout(playMusic, 1000);
-        });
-
-        // Control de volumen suave
-        music.volume = 0.4;
-
-        // Efecto de cursor personalizado mejorado (solo desktop)
         if (!isMobile) {
             document.addEventListener('mousemove', (e) => {
                 if (Math.random() > 0.97) {
@@ -1344,21 +1302,12 @@
             });
         }
 
-        // Mensaje de bienvenida en consola
         setTimeout(() => {
             console.log('%c💖 Hola Aleja, mi amor 💖', 'font-size: 20px; color: #ff69b4; font-weight: bold;');
             console.log('%c🎮 Pista: Hay 7 Easter Eggs escondidos en esta página...', 'font-size: 14px; color: #ffb3d9;');
-            console.log('%c1️⃣ Toca 3 veces en los contadores', 'font-size: 12px; color: #fff;');
-            console.log('%c2️⃣ Doble toque en 2 mensajes diferentes', 'font-size: 12px; color: #fff;');
-            console.log('%c3️⃣ Toca todos los emojis de la galería', 'font-size: 12px; color: #fff;');
-            console.log('%c4️⃣ Código Konami: ↑↑↓↓←→←→BA', 'font-size: 12px; color: #fff;');
-            console.log('%c5️⃣ Triple toque en mi nombre', 'font-size: 12px; color: #fff;');
-            console.log('%c6️⃣ Mantén presionado el título por 3 segundos', 'font-size: 12px; color: #fff;');
-            console.log('%c7️⃣ Haz scroll muy rápido', 'font-size: 12px; color: #fff;');
             console.log('%c❤️ Con amor, Derian', 'font-size: 14px; color: #ff1493; font-weight: bold;');
         }, 2000);
 
-        // Prevenir zoom en iOS en inputs
         document.addEventListener('touchstart', function(e) {
             if (e.touches.length > 1) {
                 e.preventDefault();
@@ -1376,52 +1325,3 @@
     </script>
 </body>
 </html>
-                <div class="message-icon">💖</div>
-                <p class="message-text">
-                    Quiero que sepas lo mucho que te amo, Aleja. Eres la persona más hermosa que he conocido, no solo por fuera, sino por todo lo que eres por dentro.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">✨</div>
-                <p class="message-text">
-                    Tu sonrisa ilumina mis días y tu presencia llena mi vida de felicidad. Cada día que despierto pensando en ti es un regalo.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🌹</div>
-                <p class="message-text">
-                    No hay palabras suficientes para expresar la inmensa felicidad que siento al tenerte en mi vida. Cada momento contigo es un tesoro que guardo en mi corazón.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">💕</div>
-                <p class="message-text">
-                    Cuando estoy contigo, todo tiene sentido. Tus abrazos son mi refugio, tu risa es mi canción favorita, y tus ojos son el lugar donde encuentro paz.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🌟</div>
-                <p class="message-text">
-                    Me haces feliz de maneras que nunca imaginé posibles. Desde las pequeñas cosas hasta los grandes momentos, todo es mejor cuando estás a mi lado.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">💝</div>
-                <p class="message-text">
-                    Agradezco todos los días por la bendición de compartir mi vida contigo. Eres mi compañera, mi amor, mi todo. <strong>Eres absolutamente hermosa</strong>, por dentro y por fuera.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🎆</div>
-                <p class="message-text">
-                    Cada día a tu lado es una aventura hermosa. Me haces sonreír incluso en los momentos más difíciles, y tu amor me da fuerzas para todo.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Para Ti, Mi Amor Aleja ❤</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
@@ -19,6 +20,10 @@
             --accent: #ffb3d9;
             --bg-start: #1a0612;
             --bg-end: #2d1321;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -82,21 +87,23 @@
             }
         }
 
-        /* Barra de navegación flotante */
+        /* Barra de navegación flotante - RESPONSIVE */
         nav {
             position: fixed;
-            top: 20px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50px;
-            padding: 15px 30px;
+            padding: 10px 15px;
             z-index: 1000;
             display: flex;
-            gap: 20px;
+            gap: 8px;
             animation: slideDown 0.8s ease-out;
+            max-width: 95vw;
         }
 
         @keyframes slideDown {
@@ -113,29 +120,31 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 25px;
             transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 300;
+            font-size: 12px;
+            font-weight: 400;
+            white-space: nowrap;
         }
 
-        nav a:hover {
+        nav a:hover, nav a:active {
             background: rgba(255, 105, 180, 0.3);
             transform: scale(1.05);
         }
 
-        /* Easter Egg Badge */
+        /* Easter Egg Badge - RESPONSIVE */
         .easter-egg-badge {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background: rgba(255, 105, 180, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 105, 180, 0.5);
             border-radius: 20px;
-            padding: 15px 20px;
-            font-size: 0.9rem;
+            padding: 10px 15px;
+            font-size: 0.8rem;
             z-index: 1000;
             display: none;
             animation: slideInLeft 0.5s ease-out;
@@ -156,10 +165,10 @@
         .main-container {
             position: relative;
             z-index: 1;
-            padding-top: 100px;
+            padding-top: 80px;
         }
 
-        /* Hero Section */
+        /* Hero Section - MEJORADO RESPONSIVE */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -173,7 +182,9 @@
 
         .hero-content {
             max-width: 900px;
+            width: 100%;
             animation: fadeInUp 1s ease-out;
+            padding: 0 15px;
         }
 
         @keyframes fadeInUp {
@@ -189,20 +200,20 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 8vw, 5rem);
             background: linear-gradient(135deg, #ff69b4, #ff1493, #ffb3d9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             animation: shimmer 3s ease-in-out infinite;
             background-size: 200% 200%;
             transition: all 0.3s ease;
+            line-height: 1.2;
         }
 
-        /* Easter Egg: Hover en título */
-        .hero h1:hover {
-            transform: scale(1.1) rotate(2deg);
+        .hero h1:hover, .hero h1:active {
+            transform: scale(1.05);
             filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
         }
 
@@ -212,36 +223,39 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 300;
+            line-height: 1.5;
         }
 
-        /* Contador de días */
+        /* Contador de días - TOTALMENTE RESPONSIVE */
         .counter-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+            width: 100%;
+            max-width: 600px;
+            padding: 0 10px;
         }
 
         .counter-box {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 105, 180, 0.3);
             border-radius: 20px;
-            padding: 30px;
-            min-width: 150px;
+            padding: 20px 10px;
             animation: float 3s ease-in-out infinite;
             cursor: pointer;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
 
-        /* Easter Egg: Click en contador */
-        .counter-box:hover {
-            transform: scale(1.1) rotate(5deg);
+        .counter-box:hover, .counter-box:active {
+            transform: scale(1.05) rotate(3deg);
             border-color: var(--secondary);
             box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
         }
@@ -255,7 +269,7 @@
         }
 
         .counter-number {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -264,16 +278,16 @@
         }
 
         .counter-label {
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
             color: rgba(255, 255, 255, 0.7);
-            margin-top: 10px;
+            margin-top: 8px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
-        /* Sección de mensajes */
+        /* Sección de mensajes - RESPONSIVE */
         .messages-section {
-            padding: 100px 20px;
+            padding: 60px 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -281,14 +295,16 @@
         .message-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 40px 0;
+            border-radius: 25px;
+            padding: 30px 20px;
+            margin: 30px 0;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s ease;
             cursor: pointer;
+            touch-action: manipulation;
         }
 
         .message-card.visible {
@@ -296,43 +312,42 @@
             transform: translateY(0);
         }
 
-        .message-card:hover {
-            transform: translateY(-10px) scale(1.02);
+        .message-card:hover, .message-card:active {
+            transform: translateY(-5px) scale(1.01);
             border-color: rgba(255, 105, 180, 0.5);
-            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
         }
 
-        /* Easter Egg: Doble click en mensaje */
         .message-card.loved {
             animation: loveExplosion 0.6s ease-out;
         }
 
         @keyframes loveExplosion {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); box-shadow: 0 0 50px rgba(255, 105, 180, 0.8); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 105, 180, 0.8); }
         }
 
         .message-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 15px;
             display: inline-block;
             animation: heartbeat 2s ease-in-out infinite;
             transition: all 0.3s ease;
         }
 
-        .message-icon:hover {
-            transform: scale(1.5) rotate(360deg);
+        .message-icon:hover, .message-icon:active {
+            transform: scale(1.3) rotate(360deg);
         }
 
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.2); }
+            25% { transform: scale(1.1); }
             50% { transform: scale(1); }
         }
 
         .message-text {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            line-height: 1.8;
+            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+            line-height: 1.7;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
         }
@@ -342,25 +357,27 @@
             font-weight: 600;
         }
 
-        /* Galería de momentos */
+        /* Galería de momentos - TOTALMENTE RESPONSIVE CON IMÁGENES */
         .gallery-section {
-            padding: 100px 20px;
+            padding: 60px 15px;
             text-align: center;
         }
 
         .gallery-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 60px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 40px;
             color: var(--accent);
+            padding: 0 15px;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 10px;
         }
 
         .gallery-item {
@@ -370,32 +387,43 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 6vw, 4rem);
             cursor: pointer;
             transition: all 0.4s ease;
             border: 2px solid transparent;
+            overflow: hidden;
+            position: relative;
+            touch-action: manipulation;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05) rotate(5deg);
+        /* Soporte para imágenes en galería */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+        }
+
+        .gallery-item:hover, .gallery-item:active {
+            transform: scale(1.05) rotate(3deg);
             border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
         }
 
-        /* Easter Egg: Click en galería */
         .gallery-item.clicked {
             animation: spinGallery 1s ease-out;
         }
 
         @keyframes spinGallery {
             0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.3); }
+            50% { transform: rotate(180deg) scale(1.2); }
             100% { transform: rotate(360deg) scale(1); }
         }
 
-        /* Mensaje secreto */
+        /* Mensaje secreto - RESPONSIVE */
         .secret-section {
-            padding: 100px 20px;
+            padding: 60px 15px;
             text-align: center;
         }
 
@@ -404,21 +432,23 @@
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 2px solid rgba(255, 105, 180, 0.3);
-            border-radius: 30px;
-            padding: 60px 40px;
+            border-radius: 25px;
+            padding: 40px 25px;
             cursor: pointer;
             transition: all 0.4s ease;
+            touch-action: manipulation;
         }
 
-        .secret-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+        .secret-box:hover, .secret-box:active {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
         }
 
         .secret-lock {
-            font-size: 5rem;
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin-bottom: 15px;
             animation: shake 2s ease-in-out infinite;
         }
 
@@ -430,9 +460,10 @@
 
         .secret-message {
             display: none;
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             color: var(--primary);
             animation: revealMessage 0.8s ease-out;
+            line-height: 1.6;
         }
 
         @keyframes revealMessage {
@@ -446,180 +477,65 @@
             }
         }
 
-        /* Firma final */
+        /* Firma final - RESPONSIVE */
         .signature-section {
-            padding: 100px 20px;
+            padding: 60px 15px;
             text-align: center;
         }
 
         .signature {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.3rem, 4vw, 2.5rem);
             font-style: italic;
             color: var(--accent);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
         .from {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             color: rgba(255, 255, 255, 0.8);
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .from strong {
             color: var(--primary);
             display: block;
             margin-top: 10px;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        /* Easter Egg: Firma */
-        .from strong:hover {
-            transform: scale(1.2);
+        .from strong:hover, .from strong:active {
+            transform: scale(1.15);
             text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
         }
 
-        /* Botón CTA */
+        /* Botón CTA - RESPONSIVE */
         .cta-button {
             display: inline-block;
-            padding: 18px 50px;
+            padding: 15px 40px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            margin: 30px 0;
+            margin: 25px 0;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            touch-action: manipulation;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+        .cta-button:hover, .cta-button:active {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6);
         }
 
-        /* Easter Egg: Código Konami indicador */
-        .konami-hint {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 105, 180, 0.95);
-            backdrop-filter: blur(20px);
-            border: 3px solid white;
-            border-radius: 30px;
-            padding: 50px;
-            font-size: 2rem;
-            text-align: center;
-            z-index: 10000;
-            display: none;
-            animation: popIn 0.5s ease-out;
-        }
-
-        @keyframes popIn {
-            0% { transform: translate(-50%, -50%) scale(0); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 12px 20px;
-                gap: 10px;
-                top: 10px;
-            }
-
-            nav a {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-
-            .message-card {
-                padding: 30px 25px;
-            }
-
-            .counter-section {
-                gap: 15px;
-            }
-
-            .counter-box {
-                padding: 20px;
-                min-width: 120px;
-            }
-
-            .counter-number {
-                font-size: 2rem;
-            }
-
-            .secret-box {
-                padding: 40px 25px;
-            }
-
-            .easter-egg-badge {
-                font-size: 0.8rem;
-                padding: 10px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .gallery-item {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-20px); }
-            60% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        .scroll-indicator span {
-            display: block;
-            width: 30px;
-            height: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 25px;
-            position: relative;
-        }
-
-        .scroll-indicator span::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: scrollDot 2s infinite;
-        }
-
-        @keyframes scrollDot {
-            0% { top: 10px; opacity: 1; }
-            100% { top: 30px; opacity: 0; }
-        }
-
-        /* Modal para easter egg especial */
+        /* Modal para easter egg especial - RESPONSIVE */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -628,11 +544,13 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 10000;
             animation: fadeIn 0.3s ease-out;
+            padding: 20px;
         }
 
         @keyframes fadeIn {
@@ -642,10 +560,11 @@
 
         .modal-content {
             background: linear-gradient(135deg, rgba(255, 105, 180, 0.9), rgba(255, 20, 147, 0.9));
-            padding: 50px;
-            border-radius: 30px;
+            padding: 40px 30px;
+            border-radius: 25px;
             text-align: center;
             max-width: 500px;
+            width: 100%;
             animation: scaleIn 0.5s ease-out;
         }
 
@@ -655,31 +574,186 @@
         }
 
         .modal-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 15px;
         }
 
         .modal-content p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             line-height: 1.6;
         }
 
         .close-modal {
-            margin-top: 30px;
-            padding: 15px 40px;
+            margin-top: 25px;
+            padding: 12px 35px;
             background: white;
             color: var(--secondary);
             border: none;
             border-radius: 25px;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
 
-        .close-modal:hover {
+        .close-modal:hover, .close-modal:active {
             transform: scale(1.1);
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Scroll indicator - RESPONSIVE */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 25px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes scrollDot {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 25px; opacity: 0; }
+        }
+
+        /* MEDIA QUERIES ESPECÍFICOS */
+        
+        /* Tablets */
+        @media (max-width: 768px) {
+            nav {
+                padding: 8px 12px;
+                gap: 6px;
+            }
+
+            nav a {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .message-card {
+                padding: 25px 18px;
+                margin: 25px 0;
+            }
+
+            .counter-section {
+                gap: 12px;
+            }
+        }
+
+        /* Móviles pequeños */
+        @media (max-width: 480px) {
+            .main-container {
+                padding-top: 70px;
+            }
+
+            nav {
+                top: 8px;
+                padding: 6px 10px;
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .counter-section {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                max-width: 100%;
+            }
+
+            .counter-box {
+                padding: 15px 8px;
+            }
+
+            .message-card {
+                padding: 20px 15px;
+                border-radius: 20px;
+            }
+
+            .gallery-grid {
+                gap: 10px;
+            }
+
+            .secret-box {
+                padding: 30px 20px;
+            }
+
+            .easter-egg-badge {
+                font-size: 0.7rem;
+                padding: 8px 12px;
+                bottom: 15px;
+                left: 15px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        /* Móviles muy pequeños */
+        @media (max-width: 360px) {
+            .counter-number {
+                font-size: 1.8rem;
+            }
+
+            .counter-label {
+                font-size: 0.65rem;
+            }
+
+            .gallery-grid {
+                gap: 8px;
+            }
+        }
+
+        /* Landscape en móviles */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding: 60px 20px 40px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -694,12 +768,12 @@
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#mensajes">Mensajes</a>
-        <a href="#momentos">Mi reina</a>
+        <a href="#momentos">Momentos</a>
         <a href="#secreto">Secreto</a>
     </nav>
 
     <div class="easter-egg-badge" id="easterEggBadge">
-        🏆 Easter Eggs: <span id="eggCount">0</span>/7
+        🏆 <span id="eggCount">0</span>/7
     </div>
 
     <!-- Modal Konami Code -->
@@ -747,55 +821,6 @@
         <!-- Mensajes Section -->
         <section class="messages-section" id="mensajes">
             <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">💖</div>
-                <p class="message-text">
-                    Quiero que sepas lo mucho que te amo, Aleja. Eres la persona más hermosa que he conocido, no solo por fuera, sino por todo lo que eres por dentro.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">✨</div>
-                <p class="message-text">
-                    Tu sonrisa ilumina mis días y tu presencia llena mi vida de felicidad. Cada día que despierto pensando en ti es un regalo.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🌹</div>
-                <p class="message-text">
-                    No hay palabras suficientes para expresar la inmensa felicidad que siento al tenerte en mi vida. Cada momento contigo es un tesoro que guardo en mi corazón.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">💕</div>
-                <p class="message-text">
-                    Cuando estoy contigo, todo tiene sentido. Tus abrazos son mi refugio, tu risa es mi canción favorita, y tus ojos son el lugar donde encuentro paz.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🌟</div>
-                <p class="message-text">
-                    Me haces feliz de maneras que nunca imaginé posibles. Desde las pequeñas cosas hasta los grandes momentos, todo es mejor cuando estás a mi lado.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">💝</div>
-                <p class="message-text">
-                    Agradezco todos los días por la bendición de compartir mi vida contigo. Eres mi compañera, mi amor, mi todo. <strong>Eres absolutamente hermosa</strong>, por dentro y por fuera.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
-                <div class="message-icon">🎆</div>
-                <p class="message-text">
-                    Cada día a tu lado es una aventura hermosa. Me haces sonreír incluso en los momentos más difíciles, y tu amor me da fuerzas para todo.
-                </p>
-            </div>
-
-            <div class="message-card" ondblclick="easterEgg2(this)">
                 <div class="message-icon">❤️</div>
                 <p class="message-text">
                     Eres la razón de mi sonrisa, la luz de mis días, y el amor de mi vida. No puedo imaginar mi vida sin ti, Aleja.
@@ -805,14 +830,34 @@
 
         <!-- Galería -->
         <section class="gallery-section" id="momentos">
-            <h2 class="gallery-title">Un momento para apreciar a la mujer que amo</h2>
+            <h2 class="gallery-title">Nuestros Momentos Especiales</h2>
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/1.jpg" width="250px"></div>
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/2.jpg" width="250px"></div>
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/3.jpg" width="250px"></div>
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/4.jpg" width="250px"></div>
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/5.jpg" width="250px"></div>
-                <div class="gallery-item" onclick="easterEgg3(this)"><img src="img/6.jpg" width="250px"></div>
+                <!-- Puedes reemplazar los emojis con imágenes así: <img src="foto1.jpg" alt="Momento 1"> -->
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    💑
+                    <!-- Para usar imágenes, descomenta la línea de abajo y comenta el emoji -->
+                    <!-- <img src="foto1.jpg" alt="Nosotros"> -->
+                </div>
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    🌹
+                    <!-- <img src="foto2.jpg" alt="Flores"> -->
+                </div>
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    🎉
+                    <!-- <img src="foto3.jpg" alt="Celebración"> -->
+                </div>
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    🌙
+                    <!-- <img src="foto4.jpg" alt="Noche"> -->
+                </div>
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    ☀️
+                    <!-- <img src="foto5.jpg" alt="Día"> -->
+                </div>
+                <div class="gallery-item" onclick="easterEgg3(this)">
+                    💐
+                    <!-- <img src="foto6.jpg" alt="Ramo"> -->
+                </div>
             </div>
         </section>
 
@@ -820,7 +865,7 @@
         <section class="secret-section" id="secreto">
             <div class="secret-box" id="secretBox">
                 <div class="secret-lock" id="secretLock">🔒</div>
-                <h3>Haz click para revelar un mensaje especial</h3>
+                <h3>Toca para revelar un mensaje especial</h3>
                 <div class="secret-message" id="secretMessage">
                     <p>✨ Te deseo con todo mi corazón, cada día más. Eres mi sueño hecho realidad, mi lugar favorito, mi hogar. Contigo, he encontrado la felicidad verdadera. ✨</p>
                 </div>
@@ -955,6 +1000,7 @@
         let titleHoldTimer = null;
         const mainTitle = document.getElementById('mainTitle');
         
+        // Para desktop
         mainTitle.addEventListener('mousedown', () => {
             titleHoldTimer = setTimeout(() => {
                 if (!easterEggsFound.has('title')) {
@@ -970,6 +1016,25 @@
         });
 
         mainTitle.addEventListener('mouseleave', () => {
+            if (titleHoldTimer) clearTimeout(titleHoldTimer);
+        });
+
+        // Para móviles (touch)
+        mainTitle.addEventListener('touchstart', () => {
+            titleHoldTimer = setTimeout(() => {
+                if (!easterEggsFound.has('title')) {
+                    easterEggsFound.add('title');
+                    updateEasterEggCounter();
+                    createHeartRain();
+                }
+            }, 3000);
+        });
+
+        mainTitle.addEventListener('touchend', () => {
+            if (titleHoldTimer) clearTimeout(titleHoldTimer);
+        });
+
+        mainTitle.addEventListener('touchcancel', () => {
             if (titleHoldTimer) clearTimeout(titleHoldTimer);
         });
 
@@ -992,10 +1057,12 @@
             lastScrollTime = now;
         });
 
-        // Corazones al hacer click
-        document.addEventListener('click', (e) => {
-            createClickHeart(e.pageX, e.pageY);
-        });
+        // Corazones al hacer click (solo en desktop para no interferir con mobile)
+        if (window.innerWidth > 768) {
+            document.addEventListener('click', (e) => {
+                createClickHeart(e.pageX, e.pageY);
+            });
+        }
 
         function createClickHeart(x, y) {
             const heart = document.createElement('div');
@@ -1017,7 +1084,7 @@
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = (rect.left + rect.width / 2) + 'px';
-                confetti.style.top = (rect.top + rect.height / 2) + 'px';
+                confetti.style.top = (rect.top + rect.height / 2 + window.scrollY) + 'px';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 confetti.style.transform = `translate(${Math.random() * 200 - 100}px, 0)`;
                 document.body.appendChild(confetti);
@@ -1034,7 +1101,7 @@
                     const confetti = document.createElement('div');
                     confetti.className = 'confetti';
                     confetti.style.left = Math.random() * window.innerWidth + 'px';
-                    confetti.style.top = '-10px';
+                    confetti.style.top = window.scrollY + 'px';
                     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                     confetti.style.animationDelay = Math.random() * 2 + 's';
                     document.body.appendChild(confetti);
@@ -1053,7 +1120,7 @@
                 heart.className = 'click-heart';
                 heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
                 heart.style.left = (rect.left + rect.width / 2) + 'px';
-                heart.style.top = (rect.top + rect.height / 2) + 'px';
+                heart.style.top = (rect.top + rect.height / 2 + window.scrollY) + 'px';
                 heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
                 
                 const angle = (Math.PI * 2 * i) / 20;
@@ -1073,7 +1140,7 @@
                     heart.className = 'click-heart';
                     heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
                     heart.style.left = Math.random() * window.innerWidth + 'px';
-                    heart.style.top = '-50px';
+                    heart.style.top = (window.scrollY - 50) + 'px';
                     heart.style.animation = 'floatHeart 4s ease-out forwards';
                     document.body.appendChild(heart);
                     
@@ -1089,7 +1156,7 @@
                     sparkle.textContent = '✨';
                     sparkle.className = 'click-heart';
                     sparkle.style.left = Math.random() * window.innerWidth + 'px';
-                    sparkle.style.top = Math.random() * window.innerHeight + 'px';
+                    sparkle.style.top = (Math.random() * window.innerHeight + window.scrollY) + 'px';
                     sparkle.style.fontSize = Math.random() * 2 + 1 + 'rem';
                     document.body.appendChild(sparkle);
                     
@@ -1098,11 +1165,15 @@
             }
         }
 
-        // Partículas en Canvas
+        // Partículas en Canvas (optimizado para móviles)
         const canvas = document.getElementById('particlesCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        // Reducir partículas en móviles
+        const isMobile = window.innerWidth <= 768;
+        const particleCount = isMobile ? 50 : 100;
 
         class Particle {
             constructor() {
@@ -1131,7 +1202,7 @@
         }
 
         const particles = [];
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
 
@@ -1170,7 +1241,7 @@
         // Scroll reveal para mensajes
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1212,14 +1283,16 @@
             });
         });
 
-        // Efecto parallax en scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.hero-content');
-            parallaxElements.forEach(el => {
-                el.style.transform = `translateY(${scrolled * 0.5}px)`;
+        // Efecto parallax en scroll (deshabilitado en móviles para mejor performance)
+        if (!isMobile) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.hero-content');
+                parallaxElements.forEach(el => {
+                    el.style.transform = `translateY(${scrolled * 0.5}px)`;
+                });
             });
-        });
+        }
 
         // Música automática
         const music = document.getElementById('bgMusic');
@@ -1233,12 +1306,15 @@
 
         // Reproducir con primera interacción si autoplay está bloqueado
         let firstInteraction = true;
-        document.addEventListener('click', () => {
+        const startMusic = () => {
             if (firstInteraction) {
                 playMusic();
                 firstInteraction = false;
             }
-        }, { once: true });
+        };
+
+        document.addEventListener('click', startMusic, { once: true });
+        document.addEventListener('touchstart', startMusic, { once: true });
 
         // Intentar reproducir al cargar
         window.addEventListener('load', () => {
@@ -1248,45 +1324,104 @@
         // Control de volumen suave
         music.volume = 0.4;
 
-        // Efecto de cursor personalizado mejorado
-        document.addEventListener('mousemove', (e) => {
-            if (Math.random() > 0.97) {
-                const trail = document.createElement('div');
-                trail.textContent = '✨';
-                trail.style.position = 'fixed';
-                trail.style.left = e.clientX + 'px';
-                trail.style.top = e.clientY + 'px';
-                trail.style.pointerEvents = 'none';
-                trail.style.fontSize = '1rem';
-                trail.style.zIndex = '9999';
-                trail.style.animation = 'floatHeart 2s ease-out forwards';
-                document.body.appendChild(trail);
-                
-                setTimeout(() => trail.remove(), 2000);
-            }
-        });
+        // Efecto de cursor personalizado mejorado (solo desktop)
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() > 0.97) {
+                    const trail = document.createElement('div');
+                    trail.textContent = '✨';
+                    trail.style.position = 'fixed';
+                    trail.style.left = e.clientX + 'px';
+                    trail.style.top = e.clientY + 'px';
+                    trail.style.pointerEvents = 'none';
+                    trail.style.fontSize = '1rem';
+                    trail.style.zIndex = '9999';
+                    trail.style.animation = 'floatHeart 2s ease-out forwards';
+                    document.body.appendChild(trail);
+                    
+                    setTimeout(() => trail.remove(), 2000);
+                }
+            });
+        }
 
-        // Mensaje de bienvenida
+        // Mensaje de bienvenida en consola
         setTimeout(() => {
             console.log('%c💖 Hola Aleja, mi amor 💖', 'font-size: 20px; color: #ff69b4; font-weight: bold;');
             console.log('%c🎮 Pista: Hay 7 Easter Eggs escondidos en esta página...', 'font-size: 14px; color: #ffb3d9;');
-            console.log('%c1️⃣ Click 3 veces en los contadores', 'font-size: 12px; color: #fff;');
-            console.log('%c2️⃣ Doble click en 2 mensajes diferentes', 'font-size: 12px; color: #fff;');
-            console.log('%c3️⃣ Click en todos los emojis de la galería', 'font-size: 12px; color: #fff;');
+            console.log('%c1️⃣ Toca 3 veces en los contadores', 'font-size: 12px; color: #fff;');
+            console.log('%c2️⃣ Doble toque en 2 mensajes diferentes', 'font-size: 12px; color: #fff;');
+            console.log('%c3️⃣ Toca todos los emojis de la galería', 'font-size: 12px; color: #fff;');
             console.log('%c4️⃣ Código Konami: ↑↑↓↓←→←→BA', 'font-size: 12px; color: #fff;');
-            console.log('%c5️⃣ Triple click en mi nombre', 'font-size: 12px; color: #fff;');
+            console.log('%c5️⃣ Triple toque en mi nombre', 'font-size: 12px; color: #fff;');
             console.log('%c6️⃣ Mantén presionado el título por 3 segundos', 'font-size: 12px; color: #fff;');
             console.log('%c7️⃣ Haz scroll muy rápido', 'font-size: 12px; color: #fff;');
             console.log('%c❤️ Con amor, Derian', 'font-size: 14px; color: #ff1493; font-weight: bold;');
         }, 2000);
 
-        // Animación especial al completar todos los easter eggs
-        function celebrateComplete() {
-            document.body.style.animation = 'rainbow 2s ease-in-out';
-            setTimeout(() => {
-                document.body.style.animation = '';
-            }, 2000);
-        }
+        // Prevenir zoom en iOS en inputs
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
+                <div class="message-icon">💖</div>
+                <p class="message-text">
+                    Quiero que sepas lo mucho que te amo, Aleja. Eres la persona más hermosa que he conocido, no solo por fuera, sino por todo lo que eres por dentro.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">✨</div>
+                <p class="message-text">
+                    Tu sonrisa ilumina mis días y tu presencia llena mi vida de felicidad. Cada día que despierto pensando en ti es un regalo.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🌹</div>
+                <p class="message-text">
+                    No hay palabras suficientes para expresar la inmensa felicidad que siento al tenerte en mi vida. Cada momento contigo es un tesoro que guardo en mi corazón.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">💕</div>
+                <p class="message-text">
+                    Cuando estoy contigo, todo tiene sentido. Tus abrazos son mi refugio, tu risa es mi canción favorita, y tus ojos son el lugar donde encuentro paz.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🌟</div>
+                <p class="message-text">
+                    Me haces feliz de maneras que nunca imaginé posibles. Desde las pequeñas cosas hasta los grandes momentos, todo es mejor cuando estás a mi lado.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">💝</div>
+                <p class="message-text">
+                    Agradezco todos los días por la bendición de compartir mi vida contigo. Eres mi compañera, mi amor, mi todo. <strong>Eres absolutamente hermosa</strong>, por dentro y por fuera.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
+                <div class="message-icon">🎆</div>
+                <p class="message-text">
+                    Cada día a tu lado es una aventura hermosa. Me haces sonreír incluso en los momentos más difíciles, y tu amor me da fuerzas para todo.
+                </p>
+            </div>
+
+            <div class="message-card" ondblclick="easterEgg2(this)">
